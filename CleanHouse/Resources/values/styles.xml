@@ -1,0 +1,21 @@
+<resources>
+    
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:statusBarColor">@color/primaryColor</item>
+        <item name="android:colorPrimary">@color/primaryColor</item>
+        <item name="android:colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:colorAccent">@color/primaryColor</item>
+        
+        <item name="android:colorSecondary">@color/secondaryColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+    </style>
+    
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--        <item name="android:windowBackground">@drawable/splash_screen</item>-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">true</item>
+    </style>
+
+</resources>
