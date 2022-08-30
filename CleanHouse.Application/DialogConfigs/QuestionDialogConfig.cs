@@ -11,5 +11,7 @@ namespace CleanHouse.Application.DialogConfigs
         public bool IsCancelable { get; set; } = true;
         public ICommand OnOkCommand { get; set; }
         public ICommand OnCancelCommand { get; set; }
+        public int WidthPercentages { get; set; } = 80;
+        public int HeightPercentages { get; set; } = 80;
     }
 }

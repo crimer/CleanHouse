@@ -2,13 +2,15 @@
 using Android.Content;
 using Android.OS;
 
-namespace CleanHouse.Pages
+namespace CleanHouse.Activities
 {
     [Activity(
         Theme = "@style/AppTheme.Splash", 
+        Label = "@string/app_name", 
+        Icon = "@mipmap/ic_squircle_app_launch_icon", 
+        RoundIcon="@mipmap/ic_circle_app_launch_icon",
         MainLauncher = true, 
-        NoHistory = true, 
-        Label = "Clean House")]
+        NoHistory = true)]
     public class SplashActivity : BaseActivity
     {
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistantState)
@@ -19,7 +21,7 @@ namespace CleanHouse.Pages
         protected override void OnResume()
         {
             base.OnResume();
-            StartActivity(new Intent(Android.App.Application.Context, typeof(MainActivity)));
+            StartActivity(new Intent(Android.App.Application.Context, typeof(LoginActivity)));
         }
     }
 }

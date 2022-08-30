@@ -1,21 +1,38 @@
 <resources>
-    
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <item name="android:statusBarColor">@color/primaryColor</item>
         <item name="android:colorPrimary">@color/primaryColor</item>
         <item name="android:colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="android:colorAccent">@color/primaryColor</item>
-        
         <item name="android:colorSecondary">@color/secondaryColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
     </style>
-    
+
+    <style name="AppTheme" parent="AppTheme.Base">
+    </style>
+
+    <!-- Loing & Registration Activity -->
+    <style name="AppTheme.Login" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- White Textbox -->
+    <style name="EditTextWhite" parent="AppTheme.Login">
+<!--        <item name="colorControlNormal">@color/white</item>-->
+<!--        <item name="colorControlActivated">@color/white</item>-->
+<!--        <item name="colorControlHighlight">@color/white</item>-->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Splash Activity -->
     <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--        <item name="android:windowBackground">@drawable/splash_screen</item>-->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowActionBar">true</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
 </resources>

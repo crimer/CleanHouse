@@ -2,13 +2,16 @@
 using Android.Views;
 using Android.Widget;
 using CleanHouse.Application.DialogConfigs;
+using CleanHouse.Helpers;
 using EBind;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanHouse.Dialogs.Question
 {
     public sealed class QuestionDialog : Dialog
     {
         private EBinding _binding;
+        private readonly Utils _utils = Startup.ServiceProvider.GetRequiredService<Utils>();
 
         public QuestionDialog(QuestionDialogConfig config, Activity activity) : base(activity)
         {
@@ -20,6 +23,7 @@ namespace CleanHouse.Dialogs.Question
 
             _binding = new EBinding()
             {
+                BindFlag.TwoWay,
                 () => customTitle.Text == config.Text,
                 () => buttonOk.Text == config.OkText,
                 () => buttonCancel.Text == config.CancelText,
@@ -33,7 +37,10 @@ namespace CleanHouse.Dialogs.Question
             SetCanceledOnTouchOutside(config.IsCancelable);
             
             Window.SetSoftInputMode(SoftInput.AdjustResize);
-            Window.SetLayout(ActionBar.LayoutParams.MatchParent, ActionBar.LayoutParams.WrapContent);  
+
+            var sizes = _utils.GetDevicePercentagesSize(config.WidthPercentages, config.HeightPercentages);
+            
+            Window.SetLayout((int)sizes.width, (int)sizes.height);  
             Window.SetBackgroundDrawableResource(Android.Resource.Color.Transparent);
         }
 

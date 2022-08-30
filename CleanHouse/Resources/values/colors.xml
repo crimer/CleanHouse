@@ -15,4 +15,10 @@
     <color name="secondaryDarkColor">#003c8f</color>
     <color name="secondaryTextColor">#ffffff</color>
 
+    
+    <color name="colorSuccess">#00df7e</color>
+    <color name="colorWarning">#ef7f00</color>
+    <color name="colorError">#fc1808</color>
+    <color name="colorInfo">#4D65C1</color>
+    
 </resources>
