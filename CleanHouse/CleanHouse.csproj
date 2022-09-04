@@ -48,72 +48,201 @@
         <AndroidLinkMode>SdkOnly</AndroidLinkMode>
         <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <Reference Include="System" />
         <Reference Include="System.Xml" />
         <Reference Include="System.Core" />
         <Reference Include="Mono.Android" />
+<!--        <Reference Include="Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">-->
+<!--          <HintPath>C:\Users\shevn\.nuget\packages\xamarin.android.support.v7.appcompat\28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>-->
+<!--        </Reference>-->
     </ItemGroup>
-    
+
     <ItemGroup>
+        <Compile Include="Adapters\TabsFragmentAdapter.cs" />
         <Compile Include="AppConfig.cs" />
         <Compile Include="AppErrorHandler.cs" />
-        <Compile Include="Dialogs\Question\QuestionDialog.cs" />
-        <Compile Include="Pages\BaseActivity.cs" />
-        <Compile Include="Pages\MainActivity.cs" />
-        <Compile Include="Pages\SplashActivity.cs" />
+        <Compile Include="MviCommon\BaseEvent.cs" />
+        <Compile Include="MviCommon\BaseFragment.cs" />
+        <Compile Include="MviCommon\BasePresenter.cs" />
+        <Compile Include="MviCommon\BaseScreen.cs" />
+        <Compile Include="MviCommon\BaseState.cs" />
+        <Compile Include="Services\DialogService.cs" />
+        <Compile Include="Services\Global\Drawer\GlobalDrawerEvent.cs" />
+        <Compile Include="Services\Global\Drawer\GlobalDrawerState.cs" />
+        <Compile Include="Services\Global\Drawer\GlobalDrawerController.cs" />
+        <Compile Include="Services\Global\GlobalNavigationController.cs" />
+        <Compile Include="Services\Global\GlobalToolbarController.cs" />
+        <Compile Include="Services\ScreenFactory.cs" />
+        <Compile Include="Services\StatusBarService.cs" />
+        <Compile Include="Ui\Globals\Drawer\NavigationDrawerFragment.cs" />
+        <Compile Include="Ui\Screens\LoginScreen\LoginScreen.cs" />
+        <Compile Include="Ui\Screens\LoginScreen\Presenters\LoginEvent.cs" />
+        <Compile Include="Ui\Screens\LoginScreen\Presenters\LoginPresenter.cs" />
+        <Compile Include="Ui\Screens\LoginScreen\Presenters\LoginState.cs" />
+        <Compile Include="Ui\Screens\MainScreen\MainScreen.cs" />
+        <Compile Include="Ui\Screens\MainScreen\Presenters\MainEvent.cs" />
+        <Compile Include="Ui\Screens\MainScreen\Presenters\MainPresenter.cs" />
+        <Compile Include="Ui\Screens\MainScreen\Presenters\MainState.cs" />
+        <Compile Include="Ui\Screens\SplashScreen\SplashActivity.cs" />
+        <Compile Include="Utils\Extensions\ActivityExtensions.cs" />
+        <Compile Include="Utils\Extensions\ExExtensions.cs" />
+        <Compile Include="Utils\Utils.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Services\Impls\BClassic\BClassicService.cs" />
-        <Compile Include="Services\Impls\BClassic\BCRecivedEventArgs.cs" />
-        <Compile Include="Services\Impls\BluetoothLE\BluetoothLEService.cs" />
-        <Compile Include="Services\Impls\DialogService.cs" />
-        <Compile Include="Services\Impls\Notifications\NotificationEventArgs.cs" />
-        <Compile Include="Services\Impls\StatusBarService.cs" />
-        <Compile Include="Startup.cs" />
-        <Compile Include="ViewModels\BaseVm.cs" />
-        <Compile Include="ViewModels\MainVm.cs" />
+        <Compile Include="MainApplication.cs" />
+        <Compile Include="Ui\AppActivity.cs" />
+        <Compile Include="Ui\Components\BottomNavigationBarFragment.cs" />
+        <Compile Include="Ui\Components\FirstTabFragment.cs" />
+        <Compile Include="Ui\Components\SecondTabFragment.cs" />
+        <Compile Include="Ui\Components\TabsContainerFragment.cs" />
+        <Compile Include="Ui\Dialogs\Loading\LoadingDialog.cs" />
+        <Compile Include="Ui\Dialogs\Question\QuestionDialog.cs" />
+        <Compile Include="Ui\Dialogs\Snackbar\SnackbarDialog.cs" />
     </ItemGroup>
-    
+
     <ItemGroup>
-        <PackageReference Include="EBind.NET" Version="1.0.2" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
         <PackageReference Include="Plugin.CurrentActivity" Version="2.1.0.4" />
-        <PackageReference Include="Xamarin.Android.Support.Constraint.Layout" Version="2.0.1" />
-        <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+        <PackageReference Include="ReactiveExtensionsForAndroid" Version="2.1.0" />
+<!--        <PackageReference Include="Xamarin.Android.Support.Constraint.Layout" Version="2.0.1" />-->
+<!--        <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />-->
+<!--        <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />-->
+        
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
+<!--        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />-->
+<!--        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0.3" />-->
+<!--        <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.0.2" />-->
+        <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\CleanHouse.Application\CleanHouse.Application.csproj">
-        <Project>{3595c6c2-e6ec-4fba-882f-af43e578315b}</Project>
-        <Name>CleanHouse.Application</Name>
-      </ProjectReference>
+        <ProjectReference Include="..\CleanHouse.Application\CleanHouse.Application.csproj">
+            <Project>{3595c6c2-e6ec-4fba-882f-af43e578315b}</Project>
+            <Name>CleanHouse.Application</Name>
+        </ProjectReference>
     </ItemGroup>
-    
+
     <ItemGroup>
         <Compile Include="Resources\Resource.Designer.cs" />
     </ItemGroup>
-        
+
     <ItemGroup>
         <None Include="Resources\AboutResources.txt" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <AndroidResource Include="Resources\layout\dialog_info.xml">
-        <SubType>Designer</SubType>
-        <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      </AndroidResource>
-      <AndroidResource Include="Resources\layout\dialog_question.xml" />
-      <AndroidResource Include="Resources\layout\main_activity.xml" />
-      <AndroidResource Include="Resources\drawable\dialog_bg.xml" />
-      <AndroidResource Include="Resources\values\colors.xml" />
-      <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
-      <AndroidResource Include="Resources\values\strings.xml" />
-      <AndroidResource Include="Resources\values\styles.xml" />
+        <AndroidResource Include="Resources\drawable-hdpi\ic_check.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\ic_error.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\ic_info.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\ic_warning.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\ic_check.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\ic_error.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\ic_info.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\ic_warning.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_check.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_error.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_info.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_warning.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_check.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_error.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_info.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_warning.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_error.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_info.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_warning.png" />
+        <AndroidResource Include="Resources\drawable\shape_main_service_item.xml" />
+        <AndroidResource Include="Resources\drawable\round_corners.xml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\splash_pictute.png" />
+        <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+        <AndroidResource Include="Resources\layout\screen_login.xml" />
+        <AndroidResource Include="Resources\layout\dialog_info.xml">
+            <SubType>Designer</SubType>
+            <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\layout\dialog_loading.xml" />
+        <AndroidResource Include="Resources\layout\dialog_question.xml" />
+        <AndroidResource Include="Resources\layout\activity_main.xml" />
+        <AndroidResource Include="Resources\drawable\dialog_bg.xml" />
+        <AndroidResource Include="Resources\layout\drawer_navigation_fragment.xml" />
+        <AndroidResource Include="Resources\layout\first_fragment.xml" />
+        <AndroidResource Include="Resources\layout\fragment_main_service_item.xml" />
+        <AndroidResource Include="Resources\layout\page_main.xml" />
+        <AndroidResource Include="Resources\layout\second_fragment.xml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\layout\tabbar.xml" />
+        <AndroidResource Include="Resources\layout\toolbar.xml" />
+        <AndroidResource Include="Resources\menu\navigation_drawler_menu.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_circle_app_launch_icon.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_square_app_launch_icon.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_squircle_app_launch_icon.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_circle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_circle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_circle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_square_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_square_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_square_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_squircle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_squircle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_squircle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_circle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_circle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_circle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_square_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_square_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_square_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_squircle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_squircle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_squircle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_circle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_circle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_circle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_square_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_square_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_square_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_squircle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_squircle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_squircle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_circle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_circle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_circle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_square_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_square_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_square_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_squircle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_squircle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_squircle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_circle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_circle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_circle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_square_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_square_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_square_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_squircle_app_launch_icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_squircle_app_launch_icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_squircle_app_launch_icon_foreground.png" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+        <AndroidResource Include="Resources\values\dimen.xml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+        <AndroidResource Include="Resources\values\strings.xml" />
+        <AndroidResource Include="Resources\values\styles.xml" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <AndroidAsset Include="Assets\AboutAssets.txt" />
+        <AndroidAsset Include="Assets\AboutAssets.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Ui\Dialogs" />
+      <Folder Include="Ui\Screens" />
     </ItemGroup>
 
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

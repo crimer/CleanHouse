@@ -1,6 +1,7 @@
 <resources>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
+<!--    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">-->
+    <style name="AppTheme.Base" parent="Theme.MaterialComponents.Light">
         <item name="android:statusBarColor">@color/primaryColor</item>
         <item name="android:colorPrimary">@color/primaryColor</item>
         <item name="android:colorPrimaryDark">@color/primaryDarkColor</item>
@@ -13,7 +14,7 @@
     </style>
 
     <!-- Loing & Registration Activity -->
-    <style name="AppTheme.Login" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Login" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
@@ -27,7 +28,7 @@
     </style>
 
     <!-- Splash Activity -->
-    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
